@@ -22,6 +22,17 @@
 
     </ListView>
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="421dp"
+        android:layout_height="101dp"
+        android:background="#CACACA"
+        app:layout_constraintBottom_toBottomOf="@+id/RedSource"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ListZakazis"
+        app:layout_constraintVertical_bias="1.0" />
+
     <Button
         android:id="@+id/AddSource"
         android:layout_width="wrap_content"
@@ -57,15 +68,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddSource" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="421dp"
-        android:layout_height="101dp"
-        android:background="#CACACA"
-        app:layout_constraintBottom_toBottomOf="@+id/RedSource"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListZakazis" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

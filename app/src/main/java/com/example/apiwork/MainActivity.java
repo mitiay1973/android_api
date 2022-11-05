@@ -2,8 +2,11 @@ package com.example.apiwork;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -27,8 +30,18 @@ public class MainActivity extends AppCompatActivity {
         ListView ivProducts = findViewById(R.id.ListZakazis);
         pAdapter = new AdapterMask(MainActivity.this, listZakazis);
         ivProducts.setAdapter(pAdapter);
-
+        configurationNextButton();
         new GetZakazis().execute();
+    }
+    private void configurationNextButton()
+    {
+        Button addData = (Button) findViewById(R.id.AddSource);
+        addData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AddApi.class));
+            }
+        });
     }
     private class GetZakazis extends AsyncTask<Void, Void, String> {
 
