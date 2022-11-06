@@ -16,8 +16,9 @@
 
     <TextView
         android:id="@+id/Konfiguration"
-        android:layout_width="253dp"
-        android:layout_height="49dp"
+        android:layout_width="217dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="60dp"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +42,7 @@
         android:id="@+id/User"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toTopOf="@+id/Zena"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +64,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:layout_marginBottom="80dp"
         android:text="Пользователь"
         app:layout_constraintBottom_toTopOf="@+id/Zena"

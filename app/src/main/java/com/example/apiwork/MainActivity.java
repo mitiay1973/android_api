@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... voids) {
             try {
-                URL url = new URL("https://ngknn.ru:5101/NGKNN/СорокинДА/api/zakazis");
+                URL url = new URL("https://ngknn.ru:5001/NGKNN/СорокинДА/api/zakazis");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
                             productJson.getInt("id_zakaza"),
                             productJson.getString("user"),
                             productJson.getString("konfiguracia"),
-                            productJson.getInt("zena")
+                            productJson.getInt("zena"),
+                            productJson.getString("Image")
                     );
                     listZakazis.add(tempProduct);
                     pAdapter.notifyDataSetInvalidated();

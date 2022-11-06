@@ -8,11 +8,11 @@ public class DataModal {
     private int zena;
     String Img="";
 
-    public DataModal(String user, String konfiguracia, int zena, String IMG ) {
+    public DataModal(String user, String konfiguracia, int zena, String Image) {
         this.user = user;
         this.konfiguracia = konfiguracia;
         this.zena = zena;
-        this.Img=IMG;
+        this.Img=Image;
     }
 
     public String getUser() {

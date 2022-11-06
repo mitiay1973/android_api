@@ -1,6 +1,7 @@
 package com.example.apiwork;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -46,7 +47,7 @@ public class AdapterMask  extends BaseAdapter {
         }
         else
         {
-            return null;
+            return  BitmapFactory.decodeResource(mContext.getResources(),R.drawable.ic_launcher_playstore);
 
         }
     }
@@ -63,10 +64,19 @@ public class AdapterMask  extends BaseAdapter {
         konfiguraciaa.setText(mask.getKonfiguracia());
         zenaa.setText(Integer.toString(mask.getZena()));
 
-      //  imageView.setImageBitmap(getUserImage(mask.get()));
+      imageView.setImageBitmap(getUserImage(mask.getImg()));
 
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intenDetalis=new Intent(mContext,UpdateApi.class);
+                intenDetalis.putExtra("zakaz",mask);
+                mContext.startActivity(intenDetalis);
 
+            }
+        });
         return v;
     }
+
 }
 
