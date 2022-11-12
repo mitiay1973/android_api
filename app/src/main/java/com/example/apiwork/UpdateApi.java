@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +33,6 @@ public class UpdateApi extends AppCompatActivity {
 
     private EditText UpdUser, UpdKonfirurate, UpdZena;
     private Button UpdButton;
-    private ProgressBar loadingPB;
     private ImageView imageButtonUpd;
     String ImgUpd="";
     Mask mask;
@@ -48,9 +48,9 @@ public class UpdateApi extends AppCompatActivity {
         UpdZena = findViewById(R.id.zenaUpd);
         UpdZena.setText(Integer.toString(mask.getZena()));
         UpdButton = findViewById(R.id.updButton);
-        loadingPB = findViewById(R.id.idLoadingPB);
         imageButtonUpd = findViewById(R.id.imageViewUpd);
         imageButtonUpd.setImageBitmap(getImgBitmap(mask.getImg()));
+        configureBackButton();
     }
     private Bitmap getImgBitmap(String encodedImg) {
         if(encodedImg!=null&& !encodedImg.equals("null")) {
@@ -67,7 +67,15 @@ public class UpdateApi extends AppCompatActivity {
 
     }
 
-
+    private void configureBackButton() {
+        Button back = (Button) findViewById(R.id.otmUpd);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
     public void onClickChooseImage(View view)
     {
         getImage();
@@ -120,8 +128,23 @@ public class UpdateApi extends AppCompatActivity {
                 .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Update(UpdUser.getText().toString(),UpdKonfirurate.getText().toString(),UpdZena.getText().toString(),ImgUpd);
-                        Next();
+                        if (ImgUpd=="") {
+                            ImgUpd=null;
+                            Update(UpdUser.getText().toString(), UpdKonfirurate.getText().toString(), UpdZena.getText().toString(), ImgUpd);
+                        }
+                        else
+                        {
+                            Update(UpdUser.getText().toString(), UpdKonfirurate.getText().toString(), UpdZena.getText().toString(), ImgUpd);
+                        }
+                        new CountDownTimer(1000, 1000) {
+                            public void onFinish() {
+                                Next();
+                            }
+
+                            public void onTick(long millisUntilFinished) {
+
+                            }
+                        }.start();
                     }
                 })
                 .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
@@ -133,7 +156,7 @@ public class UpdateApi extends AppCompatActivity {
         AlertDialog dialog=builder.create();
         dialog.show();
     }
-    private void Update(String user, String konfiguracia, String zena, String Image)
+    private void Update(String user, String konfiguracia, String zena,String Image)
     {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://ngknn.ru:5001/ngknn/СорокинДА/api/zakazis/")
@@ -190,7 +213,15 @@ public class UpdateApi extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         delete();
-                        Next();
+                        new CountDownTimer(1000, 1000) {
+                            public void onFinish() {
+                                Next();
+                            }
+
+                            public void onTick(long millisUntilFinished) {
+
+                            }
+                        }.start();
                     }
                 })
                 .setNegativeButton("Нет", new DialogInterface.OnClickListener() {

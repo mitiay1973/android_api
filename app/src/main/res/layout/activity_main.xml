@@ -27,46 +27,21 @@
         android:layout_width="421dp"
         android:layout_height="101dp"
         android:background="#CACACA"
-        app:layout_constraintBottom_toBottomOf="@+id/RedSource"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListZakazis"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ListZakazis" />
 
     <Button
         android:id="@+id/AddSource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#5E5E5E"
         android:text="Добавить"
         android:textColor="#8BFA3A"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListZakazis" />
-
-    <Button
-        android:id="@+id/DelSource"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="-110dp"
-        android:backgroundTint="#5E5E5E"
-        android:text="Удалить"
-        android:textColor="#8BFA3A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
-        app:layout_constraintStart_toEndOf="@+id/AddSource"
-        app:layout_constraintTop_toBottomOf="@+id/ListZakazis" />
-
-    <Button
-        android:id="@+id/RedSource"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#5E5E5E"
-        android:text="Редактировать"
-        android:textColor="#8BFA3A"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddSource" />
+        app:layout_constraintTop_toBottomOf="@+id/ListZakazis" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

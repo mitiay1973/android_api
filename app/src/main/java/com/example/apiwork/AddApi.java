@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +37,6 @@ public class AddApi extends AppCompatActivity {
     // button, textview and progressbar.
     private EditText AddUser, AddKonfirurate, AddZena;
     private Button AddButton;
-    private ProgressBar loadingPB;
     private ImageView imageButton;
     String Img="";
 
@@ -49,7 +49,6 @@ public class AddApi extends AppCompatActivity {
         AddKonfirurate = findViewById(R.id.konfigurateAdd);
         AddZena = findViewById(R.id.zenaAdd);
         AddButton = findViewById(R.id.addButton);
-        loadingPB = findViewById(R.id.idLoadingPB);
         imageButton = findViewById(R.id.imageViewAdd);
 
     }
@@ -70,7 +69,16 @@ public class AddApi extends AppCompatActivity {
                             {
                                 postData(AddUser.getText().toString(),AddKonfirurate.getText().toString(),AddZena.getText().toString(),Img);
                             }
-                            Next();
+                            new CountDownTimer(1000, 1000) {
+                                public void onFinish() {
+                                    Next();
+                                }
+
+                                public void onTick(long millisUntilFinished) {
+
+                                }
+                            }.start();
+
                         }
 
                     }
@@ -131,8 +139,7 @@ public class AddApi extends AppCompatActivity {
             }
         });
     }
-    private void postData(String user, String konfiguracia, String zena, String Image) {
-        loadingPB.setVisibility(View.VISIBLE);
+    private void postData(String user, String konfiguracia, String zena ,String Image) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://ngknn.ru:5001/NGKNN/СорокинДА/api/")
 
@@ -150,7 +157,6 @@ public class AddApi extends AppCompatActivity {
                @Override
                public void onResponse(Call<DataModal> call, Response<DataModal> response) {
                    Toast.makeText(AddApi.this, "Данные добавлены", Toast.LENGTH_SHORT).show();
-                   loadingPB.setVisibility(View.GONE);
                    AddUser.setText("");
                    AddKonfirurate.setText("");
                    AddZena.setText("");

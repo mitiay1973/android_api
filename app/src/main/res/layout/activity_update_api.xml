@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="414dp"
-        android:layout_height="735dp"
+        android:layout_width="941dp"
+        android:layout_height="1796dp"
         android:background="#CACACA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +36,7 @@
         android:id="@+id/delButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#5E5E5E"
         android:onClick="Delet_Click"
@@ -43,7 +44,8 @@
         android:textColor="#8BFA3A"
         app:layout_constraintBottom_toTopOf="@+id/otmUpd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updButton" />
 
     <Button
         android:id="@+id/otmUpd"
@@ -56,7 +58,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delButton" />
 
     <ImageView
         android:id="@+id/imageViewUpd"
@@ -109,11 +112,4 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/konfigurateUpd" />
-    <ProgressBar
-        android:id="@+id/idLoadingPB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

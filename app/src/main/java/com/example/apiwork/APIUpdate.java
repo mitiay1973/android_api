@@ -7,6 +7,6 @@ import retrofit2.http.Query;
 
 public interface APIUpdate {
     @PUT("zakazis/")
-    Call<DataModal> updateData(@Query("id_zakaza")int id, @Body DataModal dataModal);
+    Call<DataModal> updateData(@Query("id")int id, @Body DataModal dataModal);
 
 }

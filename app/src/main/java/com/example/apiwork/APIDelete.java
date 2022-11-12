@@ -6,5 +6,5 @@ import retrofit2.http.Query;
 
 public interface APIDelete {
     @DELETE("zakazis/")
-    Call<DataModal> deleteData(@Query("id_zakaza")int id);
+    Call<DataModal> deleteData(@Query("id")int id);
 }
